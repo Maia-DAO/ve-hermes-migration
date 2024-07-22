@@ -1,0 +1,12 @@
+# Compiler files
+cache/
+out/
+
+# Docs
+docs/
+
+# Dotenv file
+.env
+
+# node modules
+/node_modules/*

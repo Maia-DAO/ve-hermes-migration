@@ -1,0 +1,16 @@
+{
+  "name": "migrate-ve-hermes",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "get-balances": "npx hardhat run index.js --network hardhat"
+  },
+  "dependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "ethers": "5.7.0"
+  },
+  "devDependencies": {
+    "hardhat": "^2.22.6"
+  }
+}
