@@ -8,10 +8,9 @@
   },
   "dependencies": {
     "@nomiclabs/hardhat-ethers": "^2.2.3",
-    "dotenv": "^16.4.5",
-    "ethers": "5.7.0",
-    "hardhat": "^2.22.6"
+    "ethers": "5.7.0"
   },
   "devDependencies": {
+    "hardhat": "^2.22.6"
   }
 }
