@@ -14,7 +14,7 @@ module.exports = {
       },
       forking: {
         url: 'https://metis-mainnet.g.alchemy.com/v2/eVwGTWHeufvv7GF6TS2L7vCPbgy0JXaP',
-        blockNumber: 17875736,
+        blockNumber: 17706711,
       },
     },
   },
