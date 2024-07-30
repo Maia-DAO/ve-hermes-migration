@@ -8,9 +8,12 @@
   },
   "dependencies": {
     "@nomiclabs/hardhat-ethers": "^2.2.3",
-    "ethers": "5.7.0"
-  },
-  "devDependencies": {
+    "prettier": "^2.4.1",
     "hardhat": "^2.22.6"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "semi": false,
+    "singleQuote": true
   }
 }
