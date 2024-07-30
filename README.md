@@ -27,7 +27,7 @@ npm i
 
 ### 3. Update Hardhat Configuration
 
-Before running the script, you need to configure Hardhat to use the appropriate network and block number for forking.
+Before running the script, you need to change the migrationBlock in ìndex.js` configure Hardhat to use the appropriate network and block number for forking.
 
 Open `hardhat.config.js` and ensure the forking configuration is set correctly:
 
@@ -64,8 +64,6 @@ To execute the script, use the following command:
 
 ```bash
 yarn get-balances
-# or
-npm run get-balances
 ```
 
 ### Script Details

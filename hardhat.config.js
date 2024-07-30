@@ -1,4 +1,8 @@
 require("@nomiclabs/hardhat-ethers");
+require('dotenv').config();
+
+
+const prvkey = process.env.PRIVATE_KEY ?? '';
 
 module.exports = {
   solidity: "0.8.0",
@@ -13,12 +17,15 @@ module.exports = {
         }
       },
       forking: {
+        accounts: [prvkey],
         url: "https://metis-pokt.nodies.app",
         blockNumber: 17706711
       }
     },
     metis: {
       url: "https://metis-pokt.nodies.app",
+      accounts: [prvkey],
+      chainId: 1088
     }
   }
 };
