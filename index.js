@@ -190,15 +190,19 @@ async function consolidateData(holders) {
 const fromBlock = CREATION_BLOCK
 const toBlock = MIGRATION_BLOCK
 
-try {
-  const holders = await getHolders(veContract, fromBlock, toBlock)
-  console.log('NFT Holders:', holders.length)
+async function main() {
+  try {
+    const holders = await getHolders(veContract, fromBlock, toBlock)
+    console.log('NFT Holders:', holders.length)
 
-  const consolidatedData = await consolidateData(holders)
-  console.log('Consolidated Data')
+    const consolidatedData = await consolidateData(holders)
+    console.log('Consolidated Data')
 
-  fs.writeFileSync('locked_balances.json', JSON.stringify(consolidatedData, null, 2))
-  console.log('Data saved to locked_balances.json')
-} catch (error) {
-  console.error('Error:', error)
+    fs.writeFileSync('locked_balances.json', JSON.stringify(consolidatedData, null, 2))
+    console.log('Data saved to locked_balances.json')
+  } catch (error) {
+    console.error('Error:', error)
+  }
 }
+
+main()
