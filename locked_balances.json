@@ -2756,7 +2756,10 @@
     ],
     "totalLockedERC20": "782132800218997085563",
     "totalClaimableERC20": "0",
-    "totalERC20": "782132800218997085563"
+    "totalERC20": "782132800218997085563",
+    "tokensWithIssues": [
+      "673"
+    ]
   },
   {
     "holder": "0x4abc33cf81e0d21f42168d044f7002edd6b80b09",
@@ -5609,7 +5612,10 @@
     ],
     "totalLockedERC20": "673179586887850942170",
     "totalClaimableERC20": "0",
-    "totalERC20": "673179586887850942170"
+    "totalERC20": "673179586887850942170",
+    "tokensWithIssues": [
+      "2457"
+    ]
   },
   {
     "holder": "0x56aa4fb42f77faa81b5ca0d2b3cab33f80899648",
@@ -5976,7 +5982,10 @@
     ],
     "totalLockedERC20": "3709999986585903436177",
     "totalClaimableERC20": "0",
-    "totalERC20": "3709999986585903436177"
+    "totalERC20": "3709999986585903436177",
+    "tokensWithIssues": [
+      "1596"
+    ]
   },
   {
     "holder": "0x718d16fe64133b6e7649cee5d5c1a7c456e1af58",
@@ -6025,7 +6034,10 @@
     ],
     "totalLockedERC20": "534207923134405631316",
     "totalClaimableERC20": "0",
-    "totalERC20": "534207923134405631316"
+    "totalERC20": "534207923134405631316",
+    "tokensWithIssues": [
+      "1612"
+    ]
   },
   {
     "holder": "0x562f0afb898e8b786571284c001995cddb48c1ba",
@@ -8708,7 +8720,10 @@
     ],
     "totalLockedERC20": "196039125998768228062",
     "totalClaimableERC20": "0",
-    "totalERC20": "196039125998768228062"
+    "totalERC20": "196039125998768228062",
+    "tokensWithIssues": [
+      "2654"
+    ]
   },
   {
     "holder": "0xe9c04ae6877d6d5e74b2e1cf9caf412ba0e83130",

@@ -126,13 +126,19 @@ async function getLockedAndDistForTokenIds(tokenIds) {
   const decodedResults = returnDataLocked.map((data, index) => {
     const [amount, end] = new ethers.utils.Interface(ve_abi).decodeFunctionResult('locked', data)
 
-    const claimable =
-      returnDataClaimable[index] && returnDataClaimable[index] !== undefined && returnDataClaimable[index].success
-        ? new ethers.utils.Interface(ve_dist_abi).decodeFunctionResult(
-            'claimable',
-            returnDataClaimable[index].returnData
-          )
-        : 0
+    const claimableErrors = []
+
+    let claimable = 0
+
+    if (returnDataClaimable[index].success) {
+      claimable = new ethers.utils.Interface(ve_dist_abi).decodeFunctionResult(
+        'claimable',
+        returnDataClaimable[index].returnData
+      )
+    } else {
+      console.log("TOKEN WITH ISSUES FOUND!", flattenedTokenIds[index])
+      claimableErrors.push(flattenedTokenIds[index].toString())
+    }
 
     const lockedAmount = BigInt(amount.toString())
 
@@ -144,6 +150,7 @@ async function getLockedAndDistForTokenIds(tokenIds) {
       claimableAmount,
       total: lockedAmount + claimableAmount,
       end: BigInt(end.toString()),
+      claimableErrors
     }
   })
 
@@ -174,14 +181,24 @@ async function consolidateData(holders) {
       .reduce((sum, { claimableAmount }) => sum + BigInt(claimableAmount), BigInt(0))
       .toString()
     const total = tokenLockedInfo.reduce((sum, { total }) => sum + BigInt(total), BigInt(0)).toString()
+    const tokensWithIssues = tokenLockedInfo.flatMap((info) => info.claimableErrors)
 
-    return {
+    return tokensWithIssues.length > 0 ? {
       holder: holderData.holder,
       tokens: holderData.tokenIds.map((id) => id.toString()), // Convert token IDs to strings
       totalLockedERC20: totalLocked,
       totalClaimableERC20: totalClaimable,
       totalERC20: total,
+      tokensWithIssues
     }
+      :
+      {
+        holder: holderData.holder,
+        tokens: holderData.tokenIds.map((id) => id.toString()), // Convert token IDs to strings
+        totalLockedERC20: totalLocked,
+        totalClaimableERC20: totalClaimable,
+        totalERC20: total
+      }
   })
 
   return consolidated
