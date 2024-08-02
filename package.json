@@ -4,13 +4,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "get-balances": "npx hardhat run index.js --network hardhat"
+    "get-balances": "npx hardhat run index.js --network hardhat",
+    "get-bribes": "npx hardhat run getBribes.js --network hardhat"
   },
   "dependencies": {
     "@nomiclabs/hardhat-ethers": "^2.2.3",
     "ethers": "5.7.0",
-    "prettier": "^2.4.1",
-    "hardhat": "^2.22.6"
+    "hardhat": "^2.22.6",
+    "jsbi": "^4.3.0",
+    "prettier": "^2.4.1"
   },
   "prettier": {
     "printWidth": 120,
