@@ -73,9 +73,9 @@ const poolList = [poolListToken0, poolListToken1, poolListToken2];
 const inputFile = "./locked_balances.json";
 
 const outputFiles = [
-  "./pending_rewards_0x72c232D56542Ba082592DEE7C77b1C6CFA758BCD.json",
-  "./pending_rewards_0xb27BbeaACA2C00d6258C3118BAB6b5B6975161c8.json",
-  "./pending_rewards_0xaFF73f55968Ab4b276a26E574c96e09A615b13d6.json"
+  "./pending_bribes_0x72c232D56542Ba082592DEE7C77b1C6CFA758BCD.json",
+  "./pending_bribes_0xb27BbeaACA2C00d6258C3118BAB6b5B6975161c8.json",
+  "./pending_bribes_0xaFF73f55968Ab4b276a26E574c96e09A615b13d6.json"
 ];
 
 

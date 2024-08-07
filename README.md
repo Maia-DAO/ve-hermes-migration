@@ -118,7 +118,7 @@ yarn get-bribes
 
 ## JSON Output
 
-The results are saved to `consolidatedData.json` in the following format:
+The results are saved to `locked_balances.json` in the following format:
 
 ```json
 [
