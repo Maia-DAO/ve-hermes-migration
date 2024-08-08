@@ -1,4 +1,8 @@
-const { ethers } = require('hardhat')
+const { ethers } = require('ethers');
+
+// Setup ethers provider
+const provider = new ethers.providers.JsonRpcProvider('https://metis-mainnet.g.alchemy.com/v2/FWmhvca-2KGl6D1o9YcToyEeO8Lmshcy');
+
 const fs = require('fs')
 const multicallAbi = require('./abis/multicall.json')
 
@@ -16,18 +20,17 @@ const veAddress = '0xa4C546c8F3ca15aa537D2ac3f62EE808d915B65b'
 
 const veDistAddress = '0x04F783Ff9664bE99aE6fc8C8AeC379A287b27F67'
 
-const provider = ethers.provider
-
 const veContract = new ethers.Contract(veAddress, ve_abi, provider)
 
 const multicallContract = new ethers.Contract(multicallAddress, multicallAbi, provider)
 
 const CREATION_BLOCK = 1324880
-const MIGRATION_BLOCK = 17706711
+const MIGRATION_BLOCK = 18011710
 
 const ADDRESSES_TO_IGNORE = new Set(['0x0000000000000000000000000000000000000000'])
 
 async function getHolders(veContract, fromBlock, toBlock) {
+  console.log("Get Holders from events...")
   const logs = await fetchLogsInBatches(veContract, fromBlock, toBlock, 10000)
 
   const uniqueAddresses = new Set()
@@ -64,7 +67,7 @@ async function batchCalls(calls, batchSize) {
   const results = []
   for (let i = 0; i < calls.length; i += batchSize) {
     const batch = calls.slice(i, i + batchSize)
-    const { returnData } = await multicallContract.aggregate(batch, { gasLimit: 15000000 })
+    const { returnData } = await multicallContract.aggregate(batch, { blockTag: MIGRATION_BLOCK, gasLimit: 15000000 })
     results.push(...returnData)
   }
   return results
@@ -76,7 +79,7 @@ async function tryBatchCalls(calls, batchSize) {
   const results = []
   for (let i = 0; i < calls.length; i += batchSize) {
     const batch = calls.slice(i, i + batchSize)
-    const returnData = await multicallContract.tryAggregate(requireSuccess, batch)
+    const returnData = await multicallContract.tryAggregate(requireSuccess, batch, { blockTag: MIGRATION_BLOCK })
     results.push(...returnData)
   }
   return results

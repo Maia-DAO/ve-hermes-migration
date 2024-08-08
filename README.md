@@ -28,7 +28,9 @@ npm i
 
 ### 3. Update Hardhat Configuration
 
-Before running the get balances script, you need to change the migrationBlock in ìndex.js` configure Hardhat to use the appropriate network and block number for forking.
+- Update MIGRATION_BLOCK in:
+  - `index.js` scripts
+  - `getBribes.js` scripts
 
 Open `hardhat.config.js` and ensure the forking configuration is set correctly:
 

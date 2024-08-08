@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "get-balances": "npx hardhat run index.js --network hardhat",
-    "get-bribes": "npx hardhat run getBribes.js --network hardhat"
+    "get-balances": "node index.js",
+    "get-bribes": "node getBribes.js"
   },
   "dependencies": {
     "@nomiclabs/hardhat-ethers": "^2.2.3",
