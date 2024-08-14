@@ -6,6 +6,14 @@ const provider = new ethers.providers.JsonRpcProvider('https://metis-mainnet.g.a
 const fs = require('fs')
 const multicallAbi = require('./abis/multicall.json')
 
+const VOTING_POWER_MINING_REJECT_ADDRESSES = [
+  "0xeaec50ebe1c2a981ed8be02c36b0863fae322975",
+  "0x9116b0ebb6c7a8ae201c725c27c87e5e546ed077",
+  "0xc8819c553ff1781e017897800d75d82539a79aa2",
+  "0x892bbe6e857c94410fea07e7acf14fec3de6e023",
+  "0xf12093b5ba0e98466b28cd0ec612fec565b91eb9",
+]
+
 const ve_abi = [
   'event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)',
   'function tokensOfOwner(address _owner) external view returns (uint256[] memory)',
@@ -27,7 +35,7 @@ const multicallContract = new ethers.Contract(multicallAddress, multicallAbi, pr
 const CREATION_BLOCK = 1324880
 const MIGRATION_BLOCK = 18011710
 
-const ADDRESSES_TO_IGNORE = new Set(['0x0000000000000000000000000000000000000000'])
+const ADDRESSES_TO_IGNORE = new Set(['0x0000000000000000000000000000000000000000', ...VOTING_POWER_MINING_REJECT_ADDRESSES])
 
 async function getHolders(veContract, fromBlock, toBlock) {
   console.log("Get Holders from events...")
