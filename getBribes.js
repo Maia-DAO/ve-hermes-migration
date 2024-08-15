@@ -6,7 +6,7 @@ const provider = new ethers.providers.JsonRpcProvider('https://metis-mainnet.g.a
 const fs = require('fs');
 const JSBI = require("jsbi");
 
-const MIGRATION_BLOCK = 18011710
+const MIGRATION_BLOCK = 18097914
 
 const hermes = "0xb27BbeaACA2C00d6258C3118BAB6b5B6975161c8";
 

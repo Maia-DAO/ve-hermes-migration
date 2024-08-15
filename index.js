@@ -33,7 +33,7 @@ const veContract = new ethers.Contract(veAddress, ve_abi, provider)
 const multicallContract = new ethers.Contract(multicallAddress, multicallAbi, provider)
 
 const CREATION_BLOCK = 1324880
-const MIGRATION_BLOCK = 18011710
+const MIGRATION_BLOCK = 18097914
 
 const ADDRESSES_TO_IGNORE = new Set(['0x0000000000000000000000000000000000000000', ...VOTING_POWER_MINING_REJECT_ADDRESSES])
 
